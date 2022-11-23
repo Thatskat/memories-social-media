@@ -1,0 +1,658 @@
+/* FONT IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Knewave&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+/* ROOT VARIABLES */
+:root {
+  --primary-light: #f9fafb;
+  --primary-dark: #1f2937;
+  --brand-color: #075985;
+}
+/* COMPONENTS */
+.btn {
+  width: 13rem;
+  font-weight: 500;
+}
+#connectionSuccess {
+  display: none;
+}
+/* SIZING */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-dark);
+}
+h1{
+  font-family: 'Knewave', cursive;
+  font-size: 3rem;
+}
+/* COLORINGS */
+.navbar .nav-item a {
+  color: var(--primary-light);
+}
+.btn-brand {
+  border: none;
+  font-family: 'Knewave', cursive;
+  background: var(--brand-color);
+  color: var(--primary-light);
+  font-weight: 100;
+  padding: 15px;
+  text-transform: uppercase;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+  width: 20rem;
+}
+.btn-brand:hover {
+  color: var(--brand-color);
+  background-color: var(--primary-light);
+  font-weight: 700;
+  letter-spacing: 3px;
+  background: none;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.3s ease 0s;
+}
+.btn-secondary {
+  border: none;
+  font-family: 'Knewave', cursive;
+  background: #355d73;
+  color: var(--primary-light);
+  font-weight: 100;
+  padding: 15px;
+  text-transform: uppercase;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+  width: 20rem;
+}
+.btn-secondary:hover {
+  color: #355d73;;
+  background-color: var(--primary-light);
+  font-weight: 700;
+  letter-spacing: 3px;
+  background: none;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.3s ease 0s;
+}
+.btn-logout {
+background-color: #054669;
+padding:1rem 2rem !important;
+transition: all 1s ease-in-out;
+}
+.btn-logout:hover {
+  background-color: #043753;
+ transform: rotate(1deg) !important;
+  }
+#loginBTN {
+  margin: 3rem auto 0rem auto ;
+}
+
+.bg-primary-light {
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+}
+.link-brand{
+  text-decoration: none;
+  color: var(--brand-color);
+}
+
+.underline{
+  position: relative;
+}
+
+.underline::before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--brand-color);
+  transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .underline:hover::before{
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+}
+/* LIKE/FOLLOW BTN */
+#followBTN, #likeBTN {
+background: none;
+border: none;
+}
+#likeAmount {
+  background-color: var(--primary-light);
+  color: #DC2626;
+  font-weight: 600;
+  border-radius: 100%;
+  padding: 1rem;
+  width: 1rem;
+}
+#followBTN img, #likeBTN img {
+  border-radius: 100%;
+  width: 2rem;
+}
+*:focus,
+*:active {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+.wrapper {
+  display: inline-flex;
+  list-style: none;
+}
+
+.wrapper .icon {
+  position: relative;
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 15px;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: var(--primary-light);
+  color: var(--brand-color);
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #ffffff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .facebook:hover,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip::before {
+  background: #1877F2;
+  color: #ffffff;
+}
+/* STEP COMPONENTS */
+.step {
+  display: none;
+}
+.step.active {
+  display: block;
+}
+/* ALERT BOX */
+.alert {
+  padding: 20px;
+  background-color: #f44336; 
+  color: var(--primary-light);
+  z-index: 2;
+  position: absolute;
+  margin-left: 6rem;
+  margin-top: 1.5rem;
+}
+.alert {
+  opacity: 1;
+  transition: opacity 0.6s; 
+}
+.alert.success {
+  background-color: green !important; 
+}
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.closebtn:hover {
+  color: var(--primary-dark);
+}
+/* BACKGROUND MOVING IMAGES*/
+#canvas-basic {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 1;
+}
+body {
+  background-color: var(--brand-secondary);
+}
+/* INDEX PAGE */
+#passwordNote {
+  font-size: 0.5rem;
+  text-align: center;
+}
+#indexSection .sub-heading {
+  color: var(--primary-dark);
+  font-size: 1.1rem;
+}
+.box {
+  background-color: var(--primary-light);
+  height: 75vh;
+  width: 70%;
+  left: 6rem;
+  margin-top: 5rem;
+  text-align: center;
+  border-radius: 15px;
+  position: absolute;
+  z-index: 2;
+}
+.box h1 {
+  padding-top: 1.5rem;
+  color: var(--brand-color);
+}
+.box a {
+  margin-top: 1rem;
+}
+.box .copyrightTermConditions {
+  background-color: #e7e5e4;
+  border-radius: 15px;
+  height: 15vh;
+  width: 75%;
+  margin: auto;
+}
+#loginSection input[type='text'], #loginSection input[type='password'], #signUpSection input[type='text'],  #signUpSection input[type='email'],  #signUpSection input[type='password'],  #signUpSection input[type='file']{
+  width: 60%;
+  margin: auto;
+  text-align: center;
+  color: var(--primary-dark);
+}
+.step-3 h2 {
+  font-size: 1.1rem;
+}
+/* NAVBAR */
+.navbar-brand {
+  transition: all 1s ease-in-out;
+}
+.navbar-brand:hover {
+  transform: scale(1.1);
+  transform: rotate(5deg);
+}
+.navbar .navBTN {
+  background-color: var(--brand-color);
+  border: none;
+  color: var(--primary-light);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  transition: all 1s ease-in-out;
+}
+.navbar .nav-link{
+  padding: 1rem;
+  transition: all 1s ease-in-out;
+}
+.navbar .nav-link:hover, .navbar .navBTN:hover {
+  transform: scale(1.1);
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+/* HOME PAGE */
+/* HOME PAGE */
+.grid { 
+  margin-top: 7rem;
+  display: grid; 
+  grid-template-columns: 33% 33% 33%; 
+  grid-gap: 1rem 1rem;
+  grid-auto-flow: row dense;
+}
+
+.item {
+  height: 20rem;
+  background-color: #d4d6d7;
+  border-radius: 15px;
+}
+
+
+.overlayPar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 15px;
+  object-fit: fill;
+  background-position: center;
+}
+
+.imgOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(224, 242, 254, .6);
+  display: none;
+  flex: 1;
+  display: none;
+  flex-direction: column;  
+}
+
+.overlayPar:hover .imgOverlay  {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.overlayPar:hover .imgOverlay .infoPost {
+  position: relative;
+  margin-left: 1rem;
+}
+  .overlayPar:hover .imgOverlay a{
+    position: relative;
+    top: 6.5rem !important;
+  }
+  .overlayPar:hover .imgOverlay .infoPost #followBTN {
+    position: relative;
+    top: 10rem;
+  }
+  .overlayPar:hover .imgOverlay .infoPost #likeBTN {
+    position: relative;
+    top: 5.3rem;
+    left: 3rem;
+  }
+  .overlayPar:hover .imgOverlay .infoPost #likeAmount {
+    position: relative;
+    top: 1.2rem;
+    left: 8.5rem;
+    width: 2rem;
+  }
+  .overlayPar:hover .imgOverlay #postLocation {
+    position: relative;
+    top: -8rem;
+    left: 1rem;
+  }
+  .overlayPar:hover .imgOverlay #postDate {
+display: none;
+  }
+  .overlayPar:hover .imgOverlay #captionPost {
+    position: relative;
+    margin-left: 1rem;
+    left: -8rem;
+    top: 12rem;
+    text-align: start;
+  }
+  .overlayPar:hover .imgOverlay .adminBTN {
+    position: relative;
+    top: -22rem;
+    right: 3rem;
+  }
+.equilibrium {
+  display: block;
+}
+#homeSection, #postSection {
+  margin-top: 4rem;
+}
+#homeSection #postCard {
+  background-color: var(--primary-light);
+  height: 70vh;
+  border-radius: 15px;
+  width: 50%;
+}
+
+.adminBTN img {
+  width: 3rem;
+  border-radius: 15px;
+  margin-top: 1rem;
+}
+/* PROFILE PAGE */
+.modal-content {
+background-color: var(--primary-light);
+}
+.modal-title, .modal-body h1{
+  color: var(--primary-dark);
+  margin-bottom: 2rem;
+}
+.modal-body p{
+  color: var(--primary-dark);
+  font-size: 1rem;
+}
+.modal-body p a {
+  color: var(--brand-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+.modal-body .modalLeft {
+  text-align: start;
+  padding-left: 2rem;
+}
+.modal-footer a {
+  margin: auto;
+}
+/* POST PAGE */
+#postSection .postSectionNote {
+  display: none;
+}
+#updatePostSection #editPostNote {
+  background-color: #dcdfe3;
+  color: var(--primary-dark);
+  border-radius: 15px;
+  margin-top: 2rem;
+  height: 75vh;
+  padding: 1rem;
+  margin-top: 3rem;
+} 
+#postSection .postSectionNote h1, #updatePostSection #editPostNote h1 {
+  padding-top: 2rem;
+}
+#postSection .postSectionNote p, #editPostNote p{
+margin-top: 1rem;
+}
+#postSection .postSectionNote img, #editPostNote img {
+  border-radius: 15px;
+}
+#postSection #postForm, #updatePostSection #editPostSection {
+  background-color: #dcdfe3;
+  color: var(--primary-dark);
+  border-radius: 15px;
+  height: 75vh;
+  padding: 1rem;
+}
+#postSection #postForm input, #postSection #postForm textarea, #editPostSection form input, #editPostSection form textarea {
+  margin: auto;
+  background-color: var(--primary-light);
+}
+#postSection #postForm input[type='submit'], #editPostSection form input[type='submit']{
+  margin-left: 13rem;
+  background-color: var(--brand-color);
+  margin-top: 1.5rem;
+  transition: all 1s ease-in-out;
+  color: var(--primary-light);
+}
+#postSection #postForm input[type='submit']:hover, #editPostSection form input[type='submit']:hover {
+  background-color: #054669;
+  transform: scale(1.02);
+}
+#postSection #postForm label, #editPostSection form label {
+  margin-left: 2rem;
+}
+/* PROFILE PAGE */
+.profileOverviewSection, #profilePosts{
+  margin-top: 4rem !important;
+  text-align: center;
+}
+#profileSection .profileOverviewSection, #profileSection #profilePosts {
+  height: 75vh;
+  margin-top: 3rem;
+  border-radius: 15px;
+  background-color: #dcdfe3;
+  color: var(--primary-dark);
+}
+.profileOverviewSection img {
+  width: 8rem;
+  margin-top: 2rem;
+}
+.profileOverviewSection h2 {
+  font-family: 'Knewave', cursive;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+.profileOverviewSection p {
+  text-align: start;
+  margin-left: 2rem;
+}
+#profilePosts{
+  overflow-y: scroll;
+}
+#profilePostsCard {
+  margin: auto;
+  margin-top: 1rem;
+  height: 30vh;
+}
+#profilePostsCard .postImageProfile {
+  width: 50rem !important;
+}
+/* UPDATE PROFILE PAGE */
+#updateProfile {
+  margin-top: 4rem;
+  gap: 1rem;
+  text-align: center;
+}
+#updateProfile .previousProfile, #updateProfile form {
+  height: 75vh;
+  background-color: #dcdfe3;
+  color: var(--primary-dark);
+  border-radius: 15px;
+}
+#updateProfile .previousProfile h1 {
+  padding: 1.5rem;
+  padding-top: 2rem;
+}
+#updateProfile .previousProfile img {
+width: 8rem;
+margin-bottom: 1rem;
+}
+#updateProfile form {
+  padding: 2rem;
+  text-align: start;
+}
+#updateProfile form label {
+  margin-left: 2rem;
+}
+#updateProfile form input[type='text'], #updateProfile form input[type='email'], #updateProfile form input[type='password'],#updateProfile form input[type='file'], #updateProfile textarea{
+  width: 75% !important;
+  color: var(--brand-color);
+  background-color: var(--primary-light);
+  text-align: start;
+}
+/* POST EXPAND */
+#postExpand {
+  margin-top: 4rem;
+  gap: 1rem;
+}
+#postExpand .postExpandSide, #postExpand .postExpandDetails {
+  height: 75vh;
+  background-color: #dcdfe3;
+  color: var(--primary-dark);
+  border-radius: 15px;
+}
+#postExpand .postExpandDetails img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+#postExpand .postExpandSide h1 {
+  margin-top: 3rem;
+  padding: 2rem 2rem 0rem  2rem;
+}
+#postExpand .postExpandSide h1 a {
+  font-size: 2rem !important;
+  color: var(--primary-dark);
+}
+#postExpand .postExpandSide h1 a:hover {
+  text-decoration: underline;
+  color: #212934;
+}
+#postExpand .postExpandSide form, #postExpand .postExpandSide form #likeAmount  {
+display: inline;
+}
+#postExpand .postExpandSide form button, #postExpand .postExpandSide form #likeAmount {
+  width: 0;
+  margin-right: 3rem;
+}
+#postExpand .postExpandSide form img, #postExpand .postExpandSide form #likeAmount  {
+  margin: 0;
+}
+#postExpand .postExpandSide p {
+  margin-left: 2rem;
+  font-size: 1.1rem;
+}
+#postExpand .adminBTN {
+  text-align: center;
+  margin-top: 2rem;
+}
+/* PROFILE POSTS */
+.postProfileCard {
+  text-align: center;
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+  width: 95%;
+  border-radius: 15px;
+  margin: 1rem;
+  height: 20vh;
+}
+.postProfileCard #postProfileImage {
+  width: 15rem;
+  height: 20vh;
+  border-radius: 15px;
+}
+.postProfileCard p {
+  display: inline-block;
+  margin: 0;
+  text-align: start;
+}
+.postProfileCard form {
+  display: inline;
+}
+.postProfileCard form {
+  text-align: end;
+  width: 0;
+}
+/* FOLLOWER AND FOLLOWING PAGE */
+#followerTitle {
+  font-family: 'Knewave', cursive;
+  color: var(--brand-color);
+}
